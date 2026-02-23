@@ -69,7 +69,7 @@ pipeline {
             steps {
                 sh '''
                     echo "Vérification des métriques Prometheus..."
-                    curl -f http://localhost:5000/metrics | grep flask_http_request_total || exit 1
+                    curl -f http://10.0.2.15:5000/metrics | grep flask_http_request_total || exit 1
                     echo "✅ Métriques disponibles"
                 '''
             }
