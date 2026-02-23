@@ -59,7 +59,7 @@ pipeline {
             steps {
                 sh '''
                     echo "Test de l'application..."
-                    curl -f http://localhost:5000 || exit 1
+                    curl -f http://10.0.2.15:5000 || exit 1
                     echo "✅ Application répond correctement"
                 '''
             }
