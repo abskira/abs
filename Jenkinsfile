@@ -4,7 +4,6 @@ pipeline {
     environment {
         IMAGE_NAME = 'mon-app:latest'
         CONTAINER_NAME = 'mon-app'
-        APP_PORT = '5000'
     }
     
     stages {
@@ -12,15 +11,14 @@ pipeline {
             steps {
                 checkout scm
                 echo '✅ Code récupéré depuis GitHub'
-                sh 'ls -la'  // Affiche les fichiers pour vérifier
+                sh 'ls -la'  // Pour vérifier les fichiers
             }
         }
         
         stage('🐳 Construction de l\'image Docker') {
             steps {
-                script {
-                    docker.build(IMAGE_NAME)
-                }
+                // Construction de l'image Docker
+                sh 'docker build -t mon-app:latest .'
                 echo '✅ Image Docker construite avec succès'
             }
         }
